@@ -14,10 +14,18 @@ We systematically evaluate four fusion strategies across two adversarial trainin
 
 ## Method
 
-### Two-Stage Training Pipeline
+### Training Pipeline
+
+**Parallel methods** (concat, routing_ab, routing_conf) — 2 stages:
 
 1. **Stage 1 — Expert Pre-training:** Each WideResNet-34-10 sub-network is trained independently on its own class subset, with an additional *unknown* class for out-of-distribution inputs. EMA is applied for stabilization.
-2. **Stage 2 — Fusion + Adversarial Training:** Experts are combined via a fusion strategy and fine-tuned end-to-end with adversarial training (TRADES or DKL loss), using a reduced backbone learning rate.
+2. **Stage 2 — Fusion + Adversarial Training:** Expert backbones are frozen, a fusion head (FC or routing mechanism) is added, and the full model is fine-tuned end-to-end with adversarial training (TRADES or DKL loss).
+
+**Gating methods** (gated) — 3 stages:
+
+1. **Stage 1 — Expert Pre-training:** Same as above.
+2. **Stage 2 — Gate Training:** Expert backbones are frozen, and the gating module is trained to learn the fusion weights.
+3. **Stage 3 — Joint Adversarial Fine-tuning:** The full model (experts + gate) is fine-tuned end-to-end with adversarial training, using a reduced backbone learning rate.
 
 ### Class Splits
 
