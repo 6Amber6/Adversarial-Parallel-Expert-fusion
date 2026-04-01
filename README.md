@@ -72,9 +72,9 @@ We systematically evaluate four fusion strategies across two adversarial trainin
 
 ### Key Findings
 
-- All parallel expert methods outperform the single-model baselines in clean accuracy (+3~4.5%), PGD-20 robustness (+3~4%), and AutoAttack accuracy (+1.7~2.3%).
+- All parallel expert methods outperform the single-model baselines in clean accuracy (+3\~4.5%), PGD-20 robustness (+3\~4%), and AutoAttack accuracy (+1.7\~2.3%).
 - **Confidence-only routing** achieves the best AutoAttack accuracy (53.66%) with the simplest routing mechanism, indicating that complex routing may not be necessary.
-- Improvements are consistent across both TRADES and DKL adversarial training frameworks, suggesting the gains from expert fusion are **orthogonal to the choice of adversarial loss**.
+- Data augmentation must be kept consistent between baselines and fusion methods for fair comparison. Differences in augmentation pipelines (e.g., AutoAugment, Cutout) can confound the measured gains from fusion itself.
 
 ## Project Structure
 
