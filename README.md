@@ -68,15 +68,16 @@ We systematically evaluate four fusion strategies across two adversarial trainin
 #### TRADES (WRN-34-10, ε = 8/255, β = 6.0)
 
 | Method | Clean Acc (%) | PGD-20 Acc (%) | AutoAttack Acc (%) |
-|--------|:---:|:---:|:---:|
+| --- | :---: | :---: | :---: |
 | TRADES Baseline | 60.37 | 32.42 | 27.08 |
+| **Concat + FC** | **64.57** | **33.82** | **27.96** |
 
 #### DKL (WRN-34-10, ε = 8/255, α = 4.0, β = 20.0)
 
-| Method | Architecture | Clean Acc (%) | AutoAttack Acc (%) |
-|--------|-------------|:---:|:---:|
-| DKL Baseline | WRN-34-10 | 65.18 | 31.22 |
-| **Concat + FC** | **WRN-34-10 x 4 + FC** | **69.36** | **32.54** |
+| Method | Clean Acc (%) | AutoAttack Acc (%) |
+| --- | :---: | :---: |
+| DKL Baseline | 65.18 | 31.22 |
+| **Concat + FC** | **69.36** | **32.54** |
 
 ### Key Findings
 
